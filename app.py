@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, jsonify, redirect, request, session
-
+from test import test
 app = Flask(__name__)
 
 
@@ -61,8 +61,6 @@ from test_blueprint.test_blue import test2
 #app이 주 서버 실행파일이므로 app에 test모듈을 등록한다(register_blueprint)
 app.register_blueprint(test2)
 
-from test.test import test1
-app.register_blueprint(test1)
 
 from test.test import test1
 app.register_blueprint(test1)
