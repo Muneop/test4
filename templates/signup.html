@@ -1,0 +1,94 @@
+<!doctype html> 
+<html> 
+    <head> 
+        <meta charset="utf-8"> 
+        <title>MMG SIGN UP</title> 
+      	<link rel="stylesheet" href="signup.css">
+      	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+      	<style>
+      		body {
+      			font-family: 'Do Hyeon', sans-serif;
+      			text-align: center;
+			}
+			button {
+				font-family: 'Do Hyeon', sans-serif;
+				text-align: left;
+			}
+        	div {
+        		font-family: 'Do Hyeon', sans-serif;
+        		text-align: left;
+        		position: relative;
+        		left: 300px;
+        		top: 10px;
+        	}
+        	h1 {
+        		font-family: 'Do Hyeon', sans-serif;
+				text-align: left;
+				position: relative;
+				left: 600px;
+				bottom: 120px;
+				color: #A6A6A6;
+			}
+			h3 {
+				font-family: 'Do Hyeon', sans-serif;
+				text-align: left;
+				position: relative;
+				left: 600px;
+				bottom: 120px;
+				color: #5D5D5D;
+			    
+			}
+			h4 {
+				text-align: left;
+				position: relative;
+				left: 750px;
+				bottom: 80px;
+			}
+      	</style>
+
+    </head> 
+
+    <header>
+    	<br><br><br>
+    	<a onclick="location.href='/'"><img src="메인.png" width="200"></img></a>
+        <br><br>
+        <br>
+        <ul>
+        	<div><p>
+					<a href="mypage.html"><button type="button" class="btn btn-outline-danger btn-sm">MY PAGE</button></a><br><br>
+					<a href="login_test.html"><button type="button" class="btn btn-outline-danger btn-sm">LOGIN</button></a>
+				</p></div>
+		</ul>
+    </header>
+
+    <body> 
+    	<p><h1><font size="5">
+    		SIGN UP
+    	</font></h1>
+    	</p>
+    		<h3><font size="3">
+        	<form action="http://localhost/signup.php" method="post">
+			<fieldset> 
+				<label>이름: <input type="text" name='id' placeholder="이름을 입력해 주세요" required></label><br>
+				<label>아이디: <input type="text" name='id' placeholder="아이디를 입력해 주세요" required></label>
+				<button type="button" class="btn btn-outline-dark btn-sm">중복확인</button>
+				<br> 
+				<label>비밀번호: <input type="password" name='pwd' placeholder="비밀번호를 입력해주세요" required></label><br>
+				<label>비밀번호 확인: <input type="password" name='pwd' placeholder="비밀번호를 입력해주세요" required></label>
+				</h3>
+
+				<h4><button type="button" class="btn btn-outline-danger">가입 신청</button></h4>
+			</fieldset>
+		</form>	
+		</font>
+	</body>
+
+	<footer>
+		<br><br>
+		<div1>
+		<p><font size="2"><h2 class="project">한국외국어대학교 글로벌캠퍼스<br>
+		김문업 안선영 최세미 졸업하기 프로젝트</h2></font></p>
+		</div1>
+	</footer>
+</html>

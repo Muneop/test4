@@ -1,0 +1,11 @@
+footer {
+    font-family: 'Do Hyeon', sans-serif;
+    color: #A6A6A6;
+}
+h1 {
+	text-align: center;
+    position: relative;
+    right: 100px;
+    bottom: : 100px;
+	color: #A6A6A6;
+}
