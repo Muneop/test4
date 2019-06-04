@@ -68,13 +68,10 @@ app.register_blueprint(test1)
 from login.login import login_function
 app.register_blueprint(login_function)
 
-host_addr = "0.0.0.0"
-port_num = "8080"
-
 
 if __name__ == '__main__':
     #with app.test_request_context():
     #    print(url_for('hello'))
     #    print(url_for('get_profile', username='flash'))
-    login_function.secret_key = "1234"
-    app.run(host=host_addr, port=port_num)
+
+    app.run(host='0.0.0.0',debug=True,port=8080)

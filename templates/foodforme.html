@@ -103,7 +103,7 @@
 
             </p>
                 {% if count ==1: %}
-                    <form action = "http://127.0.0.1:5000/recommendation/execute" method = "post">
+                    <form action = "http://0.0.0.0:5000/recommendation/execute" method = "post">
                         <p>오늘의 감정 상태는?
                             <select name="emotion" required>
                                 <option value="5" name="emotion_level">최고야!</option>
@@ -144,7 +144,7 @@
 
                 <br>
             </h5>
-            <form action="http://127.0.0.1:5000/recommendation/evaluation" method = "post">
+            <form action="http://0.0.0.0:5000/recommendation/evaluation" method = "post">
             <p>
                 <h7>추천받은 음식은 어때?<br><br>
                 별로.. &nbsp;&nbsp;0.0 &nbsp;0.5 &nbsp;1.0 &nbsp;1.5 &nbsp;&nbsp;2.0 &nbsp;2.5 &nbsp;&nbsp;3.0 &nbsp;3.5 &nbsp;&nbsp;4.0 &nbsp;4.5 &nbsp;&nbsp;5.0 &nbsp;&nbsp; 당장먹자</h7><br>

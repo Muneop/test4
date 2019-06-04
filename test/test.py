@@ -51,6 +51,11 @@ def sim_pearson(data, name1, name2):  # 사용자의 음식평가리스트를 �
     # 밑에도 y동일하게 진행해서 두개의 값을 곱해 위의 값을 나눠줌
     # print(name2,count)
     # print(" ")
+    if count == 0:
+        return -404
+    else:
+        if sqrt((sumPowX - (pow(sumX, 2) / count)) * (sumPowY - (pow(sumY, 2) / count)))==0:
+            return -404
     return (sumXY - ((sumX * sumY) / count)) / sqrt((sumPowX - (pow(sumX, 2) / count)) * (sumPowY - (pow(sumY, 2) / count)))
 
 
@@ -64,7 +69,10 @@ def top_match(data, name, index, sim_function=sim_pearson):  # 여러 사용자�
     li = []
     for i in data:
         if name != i:
-            li.append((sim_function(data, name, i), i))  # 유사도, 이름을 튜플에 묶어 리스트에 추가한다.
+            if sim_function(data, name, i)==-404:
+                pass
+            else:
+                li.append((sim_function(data, name, i), i))  # 유사도, 이름을 튜플에 묶어 리스트에 추가한다.
     li.sort()  # 오름차순 정렬
     li.reverse()  # 내림차순정렬
     return li[:index]

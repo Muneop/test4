@@ -33,7 +33,7 @@
     	<br>
         <ul><p><div>
                 {% if id == None %}
-                    <form action = "http://127.0.0.1:5000/recommendation/" method = "post">
+                    <form action = "http://0.0.0.0:5000/recommendation/" method = "post">
                         <label>사용할 닉네임을 입력하세요 <input type = "text" name ="id" placeholder="USERNAME"> </label><br>
                         <input type="submit" value="Let's get RECOMMENDATION!" class="btn btn-outline-danger">
                 {% else %}
