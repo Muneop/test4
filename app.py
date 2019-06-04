@@ -74,4 +74,4 @@ if __name__ == '__main__':
     #    print(url_for('hello'))
     #    print(url_for('get_profile', username='flash'))
 
-    app.run(host='0.0.0.0',debug=True,port=8080)
+    app.run(host='0.0.0.0',port=8080,debug=True)
