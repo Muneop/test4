@@ -69,9 +69,10 @@ from login.login import login_function
 app.register_blueprint(login_function)
 
 
+hostname = '0.0.0.0'
 if __name__ == '__main__':
     #with app.test_request_context():
     #    print(url_for('hello'))
     #    print(url_for('get_profile', username='flash'))
 
-    app.run(host='0.0.0.0',port=8080,debug=True)
+    app.run(host=hostname,port=5001)

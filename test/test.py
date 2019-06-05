@@ -11,6 +11,7 @@ from datetime import datetime
 ####뇬뇬뇬의 코드
 from urllib.request import urlopen, Request
 import urllib
+import bs4
 from bs4 import BeautifulSoup
 ####뇬뇬의 코드
 
@@ -198,47 +199,50 @@ def getRandomFoodList():
     return result
 
 
+
 def getStatus():
     ####뇬뇬뇬의 코드
-    enc_location = urllib.parse.quote('오늘+날씨')
-    url = 'https://search.naver.com/search.naver?ie=utf8&query=' + enc_location
-    context = ssl._create_unverified_context()
-    page = urllib.request.urlopen(url, context=context)
+    enc_location = urllib.parse.quote('모현읍날씨')
+    url = "https://search.naver.com/search.naver?ie=utf8&query=" + enc_location
+    req = Request(url)
+    page = urlopen(req)
     html = page.read()
-    soup = BeautifulSoup(html, 'html.parser')
-
-    st_weat = str(soup.find('p', {'class': 'cast_txt'}).text)  # 구름파트
+    # html = requests.get(url)
+    soup = bs4.BeautifulSoup(html, 'html5lib')
+    st_weat = str(soup.find("p", class_="cast_txt").text)  # 구름파트
     today_weat = st_weat.split(',')  # 구름파트
     weather = today_weat[0]
-    temperature = int(soup.find('p', class_='info_temperature').find('span', class_='todaytemp').text)
-    real_location = str(soup.find('span', {'class': 'btn_select'}).text)
 
-    if weather=='비' or weather =='눈':
-        guser['weather']=5
+    temp = soup.find("p", class_="info_temperature").find('span', class_='todaytemp').text
+    # temp = soup.find("p",class_="cast_txt")
+    temperature = 15
+
+    real_location = str(soup.find("span", {"class": "btn_select"}).text)
+
+    if weather == '비' or weather == '눈':
+        guser['weather'] = 5
         word = ''
-        if weather=='비':
+        if weather == '비':
             word = 'R'
         elif weather == '눈':
             word = 'S'
-        guser['RorS']=word
+        guser['RorS'] = word
     else:
-        #맑음, 구름많음, 구름조금, 흐림, 비, 눈
-        guser['RorS']='N'
-        if weather=='맑음':
-            guser['weather']=1
-        elif weather=='구름조금':
-            guser['weather']=2
-        elif weather=='구름많음':
-            guser['weather']=3
-        elif weather=='흐림':
-            guser['weather']=4
+        # 맑음, 구름많음, 구름조금, 흐림, 비, 눈
+        guser['RorS'] = 'N'
+        if weather == '맑음':
+            guser['weather'] = 1
+        elif weather == '구름조금':
+            guser['weather'] = 2
+        elif weather == '구름많음':
+            guser['weather'] = 3
+        elif weather == '흐림':
+            guser['weather'] = 4
 
     guser['location'] = real_location
     guser['temperature'] = temperature
-    guser['time']=datetime.now().hour
+    guser['time'] = datetime.now().hour
     return guser
-    ####뇬뇬뇬의 코드
-
 
 
 #초기화면
@@ -338,6 +342,7 @@ def recommendation_onemore():
     result = guser['list']
     output = result[0]
     rec_result_temp = output
+    guser['foodname'] = output
     del result[0]
     guser['list'] = result
 
